@@ -40,7 +40,7 @@ async def reload(ctx, cog):
         raise e
 
 #Some error catching to prevent fatal crashes
-for cog in os.listdir(".\\cogs"):
+for cog in os.listdir("cogs"):
     if cog.endswith(".py"):
         try:
             cog = f"cogs.{cog.replace('.py', '')}"
