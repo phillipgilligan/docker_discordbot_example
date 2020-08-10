@@ -4,6 +4,12 @@ FROM ubuntu:latest
 WORKDIR /app 
 #Copying contents of all files to our working directory
 COPY . /app
+#Creating and securing a user account and group for image:
+RUN groupadd -r discordbot && useradd -r -s /bin/false -g discordbot discordbot
+#chown'ing created account and directory
+RUN chown -R discordbot:discordbot /app
+#Runnin as above created user
+USER discordbot
 #Updating package manager
 RUN apt update -y
 #Required dependency apt-utils
